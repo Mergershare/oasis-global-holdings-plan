@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oasis Global Holdings | An Integrated Business Plan</title>
+    <!-- Chosen Palette: "Calm Harmony" - A sophisticated and professional theme using warm neutrals (slate/stone), accented with a deep, trustworthy teal for key actions and highlights, and a warm gold for secondary accents, creating a feeling of stability, growth, and sustainability. -->
+    <!-- Application Structure Plan: A top-down, single-page application designed for a narrative journey. It starts with a high-level vision, moves to a quantitative dashboard (The Project), breaks down the core divisions (Communities & SkyCargo), explains the strategic linchpin (The Portugal Hub), delves into financials, impact, governance, and concludes with detailing the key strategic partners. This structure was chosen to guide an investor from the "what" and "why" to the "how" and "who," making a complex, multi-billion dollar project understandable and compelling. Navigation is facilitated by a sticky header. -->
+    <!-- Visualization & Content Choices: Data is presented through a mix of large-format text, icons, and dynamic charts to maintain engagement. Key Metrics (Funding, Jobs) use animated counters for impact. The core project structure is shown with distinct, icon-driven cards (Goal: Organize). Financial data (Funding, Phasing) is visualized with interactive donut and bar charts from Chart.js (Goal: Compare, Inform), which are ideal for showing proportions and breakdowns. The strategic location is explained using a simplified map with CSS-drawn routes to illustrate logistical connections (Goal: Relationships). This multi-format approach ensures clarity and caters to different information processing styles, all while strictly avoiding SVG and Mermaid.js. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #1e293b; /* slate-800 */
+        }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #0d9488, #f59e0b);
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 350px;
+            width: 100%;
+            max-width: 450px;
+        }
+        .map-container {
+            position: relative;
+            width: 100%;
+            padding-top: 50%; /* 2:1 Aspect Ratio */
+            margin: auto;
+            max-width: 1000px;
+            background-color: #e2e8f0;
+            border-radius: 0.75rem;
+            overflow: hidden;
+        }
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+                max-width: 500px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-slate-50/80 backdrop-blur-lg sticky top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#hero" class="text-xl font-bold text-slate-800">Oasis Global Holdings</a>
+                </div>
+                <nav class="hidden md:flex md:space-x-8">
+                    <a href="#project" class="font-medium text-slate-600 hover:text-teal-600 transition">The Project</a>
+                    <a href="#divisions" class="font-medium text-slate-600 hover:text-teal-600 transition">Divisions</a>
+                    <a href="#financials" class="font-medium text-slate-600 hover:text-teal-600 transition">Financials</a>
+                    <a href="#impact" class="font-medium text-slate-600 hover:text-teal-600 transition">Impact</a>
+                    <a href="#governance" class="font-medium text-slate-600 hover:text-teal-600 transition">Governance</a>
+                    <a href="#partners" class="font-medium text-slate-600 hover:text-teal-600 transition">Partners</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight">
+                    A New Model for a <span class="text-gradient">New Century</span>
+                </h1>
+                <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-slate-600">
+                    This document outlines the business plan for Oasis Global Holdings, a pioneering enterprise creating a synergistic ecosystem of technologically advanced, carbon-neutral communities linked by a dedicated global logistics network. This is the blueprint for the 5th Industrial City era.
+                </p>
+                <div class="mt-10">
+                    <a href="#project" class="inline-block bg-teal-600 text-white font-bold rounded-lg px-8 py-3 text-lg hover:bg-teal-700 transition-transform duration-300 hover:scale-105">
+                        Explore The Vision
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Overview Dashboard -->
+        <section id="project" class="py-20 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">The Project at a Glance</h2>
+                    <p class="mt-4 text-lg text-slate-600">A transformative global enterprise integrating sustainable communities with dedicated logistics.</p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-100 text-center">
+                        <div class="text-5xl font-extrabold text-teal-600" data-target="2.73">0</div>
+                        <p class="mt-2 text-lg font-semibold text-slate-800">Billion USD</p>
+                        <p class="text-slate-500">Total Funding Requirement</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-100 text-center">
+                        <div class="text-5xl font-extrabold text-teal-600" data-target="50000">0</div>
+                        <p class="mt-2 text-lg font-semibold text-slate-800">Sustainable Jobs</p>
+                        <p class="text-slate-500">Created Per Community</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-100 text-center">
+                        <div class="text-5xl font-extrabold text-teal-600" data-target="1000000">0</div>
+                        <p class="mt-2 text-lg font-semibold text-slate-800">Annual Visitors</p>
+                        <p class="text-slate-500">Projected Per Community</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Two Divisions -->
+        <section id="divisions" class="py-20 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Two Synergistic Divisions</h2>
+                    <p class="mt-4 text-lg text-slate-600">A closed-loop ecosystem where sustainable development and efficient logistics create unparalleled value.</p>
+                </div>
+                <div class="mt-16 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-slate-50 p-8 rounded-xl border border-slate-200">
+                        <div class="flex items-center">
+                           <div class="bg-teal-100 text-teal-600 p-3 rounded-full">
+                                <span class="text-3xl">🏡</span>
+                            </div>
+                            <h3 class="ml-4 text-2xl font-bold text-slate-900">Oasis Communities</h3>
+                        </div>
+                        <p class="mt-4 text-slate-600">This division develops and manages a global network of "Tokenized Smart LEED Net-Zero Certified Corporate Eco-Village" cities. These hubs are centers for production, trade, education, and sustainable living, with the flagship project in Alentejo, Portugal.</p>
+                    </div>
+                    <div class="bg-slate-50 p-8 rounded-xl border border-slate-200">
+                        <div class="flex items-center">
+                             <div class="bg-amber-100 text-amber-600 p-3 rounded-full">
+                                <span class="text-3xl">✈️</span>
+                            </div>
+                            <h3 class="ml-4 text-2xl font-bold text-slate-900">Oasis SkyCargo</h3>
+                        </div>
+                        <p class="mt-4 text-slate-600">This division operates a Hong Kong-based, long-haul air cargo carrier providing direct, "end-to-end" logistics solutions. It connects our communities and other key production centers with strategic global markets, ensuring a resilient supply chain.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strategic Location Section -->
+        <section id="location" class="py-20 md:py-24">
+             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">The Strategic Imperative: Portugal</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">The flagship community in Portugal is the cornerstone of our global strategy, creating an efficient and powerful sea-air logistics hub.</p>
+                </div>
+                <div class="mt-16 max-w-5xl mx-auto p-4 md:p-8 bg-white rounded-xl shadow-lg border border-slate-100">
+                    <div class="map-container">
+                       <img src="https://placehold.co/1000x500/e2e8f0/475569?text=Global+Connectivity+Map" 
+                             alt="Stylized world map showing connectivity hubs" 
+                             class="map-overlay w-full h-full object-cover"
+                             onerror="this.onerror=null;this.src='https://placehold.co/1000x500/e2e8f0/475569?text=Map+Error';">
+                        <canvas id="route-canvas" class="map-overlay"></canvas>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <button id="toggle-routes-btn" class="bg-teal-600 text-white font-semibold rounded-lg px-6 py-2 hover:bg-teal-700 transition">Show Logistical Routes</button>
+                    </div>
+                     <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                        <div>
+                            <h4 class="font-bold text-slate-800">Logistical Nexus</h4>
+                            <p class="text-sm text-slate-500 mt-1">Proximity to the Port of Sines creates a sea-air hub connecting Asia to Europe, Africa, and the Americas.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800">Economic Value</h4>
+                            <p class="text-sm text-slate-500 mt-1">Access to 1,000+ acres of low-cost land with high appreciation potential in a stable, EU-regulated environment.</p>
+                        </div>
+                         <div>
+                            <h4 class="font-bold text-slate-800">Resource Alignment</h4>
+                            <p class="text-sm text-slate-500 mt-1">Ideal climate for solar power and an agricultural foundation for a circular bio-economy.</p>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+
+        <!-- Financials Section -->
+        <section id="financials" class="py-20 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Financial Framework</h2>
+                    <p class="mt-4 text-lg text-slate-600">A robust, phased funding strategy designed to maximize returns and de-risk investment.</p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-center text-slate-800 mb-4">Total Funding: $2.73 Billion</h3>
+                        <div class="chart-container">
+                            <canvas id="fundingChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-center text-slate-800 mb-4">Phased Financial Obligations</h3>
+                        <div class="chart-container" style="max-width: 600px;">
+                            <canvas id="phasedChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-16 text-center">
+                     <h3 class="text-2xl font-bold text-slate-800 mb-2">Projected Returns</h3>
+                     <p class="text-slate-600">The integrated model is expected to deliver strong returns, with an 18% IRR projected for communities and 12-18% ROI for SkyCargo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community & Global Impact Section -->
+        <section id="impact" class="py-20 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">A Powerful Engine for Progress</h2>
+                    <p class="mt-4 text-lg text-slate-600">Beyond financial returns, the project is designed to create lasting social and environmental benefits.</p>
+                </div>
+                <div class="mt-16 max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-100">
+                        <div class="text-teal-500 text-4xl mb-2">💼</div>
+                        <h4 class="font-bold text-slate-800">50,000+ Jobs</h4>
+                        <p class="text-sm text-slate-500 mt-1">Creation of sustainable jobs in tech, agriculture, and logistics.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-100">
+                        <div class="text-teal-500 text-4xl mb-2">📈</div>
+                        <h4 class="font-bold text-slate-800">Thriving Economy</h4>
+                        <p class="text-sm text-slate-500 mt-1">Transforming land into an economic hub for over 1M people annually.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-100">
+                         <div class="text-teal-500 text-4xl mb-2">♻️</div>
+                        <h4 class="font-bold text-slate-800">Net-Zero Living</h4>
+                        <p class="text-sm text-slate-500 mt-1">A new benchmark for sustainable living via a circular bio-economy.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-100">
+                        <div class="text-teal-500 text-4xl mb-2">🔗</div>
+                        <h4 class="font-bold text-slate-800">Resilient Supply Chains</h4>
+                        <p class="text-sm text-slate-500 mt-1">Providing stability and new opportunities for regional businesses.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Governance Section -->
+        <section id="governance" class="py-20 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                 <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Corporate Structure & Strategic Governance</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">A robust structure designed for financial discipline, expert oversight, and strategic growth.</p>
+                </div>
+                <div class="mt-12 max-w-4xl mx-auto space-y-8">
+                     <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                        <h4 class="font-bold text-slate-800">Office of the General Partner</h4>
+                        <p class="text-slate-600 mt-2">Financial stewardship and strategic oversight for the holding company are managed through a dedicated Office of the General Partner, which is integral to the enterprise's governance. This ensures alignment and expert management across all key functions.</p>
+                    </div>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-4 rounded-lg border border-slate-200">
+                           <h5 class="font-semibold text-slate-700">Capital Architecture</h5>
+                           <p class="text-sm text-slate-500 mt-1">Governs the $2.73B capital structure.</p>
+                        </div>
+                         <div class="bg-white p-4 rounded-lg border border-slate-200">
+                           <h5 class="font-semibold text-slate-700">Project Governance (SPVs)</h5>
+                           <p class="text-sm text-slate-500 mt-1">Provides direct oversight of capital deployment.</p>
+                        </div>
+                         <div class="bg-white p-4 rounded-lg border border-slate-200">
+                           <h5 class="font-semibold text-slate-700">Strategic Growth & M&A</h5>
+                           <p class="text-sm text-slate-500 mt-1">Drives the "Community +1" global expansion.</p>
+                        </div>
+                         <div class="bg-white p-4 rounded-lg border border-slate-200">
+                           <h5 class="font-semibold text-slate-700">Digital Asset Integrity</h5>
+                           <p class="text-sm text-slate-500 mt-1">Ensures security of the tokenized ecosystem.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strategic Partners Section -->
+        <section id="partners" class="py-20 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Our Strategic Partners</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">The success of Oasis Global Holdings is predicated on a synergistic collaboration between world-class experts in development, logistics, and finance.</p>
+                </div>
+                <div class="mt-16 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- CETS Global Card -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-100 flex flex-col">
+                        <h3 class="text-xl font-bold text-slate-900">CETS Global</h3>
+                        <p class="text-teal-600 font-semibold mt-1">Technology & Development Partner</p>
+                        <p class="mt-4 text-slate-600 flex-grow">Responsible for the design, development, and technological integration of the Oasis Communities eco-village projects.</p>
+                        <ul class="mt-4 space-y-2 text-slate-500 text-sm list-disc list-inside">
+                            <li>Leads master planning and architecture.</li>
+                            <li>Implements smart grids, IoT, and circular economy systems.</li>
+                            <li>Ensures LEED Net-Zero certification standards.</li>
+                        </ul>
+                    </div>
+                    <!-- Air Cargo Group Card -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-100 flex flex-col">
+                        <h3 class="text-xl font-bold text-slate-900">The Air Cargo Group</h3>
+                        <p class="text-teal-600 font-semibold mt-1">Logistics & Aviation Partner</p>
+                        <p class="mt-4 text-slate-600 flex-grow">The lead operational partner for the Oasis SkyCargo division, providing deep aviation expertise.</p>
+                         <ul class="mt-4 space-y-2 text-slate-500 text-sm list-disc list-inside">
+                            <li>Manages airline certification and launch in Hong Kong.</li>
+                            <li>Oversees all flight, ground, and maintenance operations.</li>
+                            <li>Drives commercial strategy and global cargo sales.</li>
+                        </ul>
+                    </div>
+                    <!-- Mergershare LTD Card -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-100 flex flex-col">
+                        <h3 class="text-xl font-bold text-slate-900">Mergershare LTD</h3>
+                        <p class="text-teal-600 font-semibold mt-1">Financial & Strategic Governance Partner</p>
+                        <p class="mt-4 text-slate-600 flex-grow">A foundational equity partner providing financial stewardship via the Office of the General Partner.</p>
+                         <ul class="mt-4 space-y-2 text-slate-500 text-sm list-disc list-inside">
+                            <li>Architects the enterprise's capital and funding structure.</li>
+                            <li>Provides governance over SPVs and capital deployment.</li>
+                            <li>Drives the "Community +1" global expansion via M&A.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-300">
+        <div class="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold text-white">Investing in a Resilient Future</h3>
+                <p class="mt-4 max-w-2xl mx-auto">
+                    Oasis Global Holdings presents a rare opportunity to invest in a comprehensive solution to some of the most pressing challenges of our time. This is more than an investment; it is an investment in a new, fully integrated economic architecture. We invite you to join us in building this prosperous, sustainable, and connected future.
+                </p>
+            </div>
+            <div class="mt-8 border-t border-slate-700 pt-8 text-center">
+                <p class="text-sm text-slate-400">&copy; 2025 Oasis Global Holdings. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const animateCounter = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                const isFloat = target % 1 !== 0;
+                
+                const updateCount = () => {
+                    const count = +counter.innerText.replace(/,/g, '');
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        let newCount = count + inc;
+                        if (isFloat) {
+                            counter.innerText = newCount.toFixed(2);
+                        } else {
+                            counter.innerText = Math.ceil(newCount).toLocaleString();
+                        }
+                        setTimeout(updateCount, 10);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                         if (isFloat) {
+                            counter.innerText = target.toFixed(2);
+                        }
+                    }
+                };
+                updateCount();
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const counters = document.querySelectorAll('.text-5xl[data-target]');
+            const speed = 200;
+            counters.forEach(counter => {
+                observer.observe(counter);
+            });
+            
+            const chartStyles = { fontColor: '#475569', gridLineColor: '#e2e8f0' };
+
+            const fundingCtx = document.getElementById('fundingChart')?.getContext('2d');
+            if (fundingCtx) {
+                new Chart(fundingCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Oasis Communities', 'Oasis SkyCargo'],
+                        datasets: [{ data: [2625, 105], backgroundColor: ['#0d9488', '#f59e0b'], borderColor: '#f8fafc', borderWidth: 4, hoverOffset: 8 }]
+                    },
+                    options: {
+                        responsive: true, maintainAspectRatio: false, cutout: '70%',
+                        plugins: {
+                            legend: { position: 'bottom', labels: { color: chartStyles.fontColor, font: { size: 14 } } },
+                            tooltip: { callbacks: { label: (c) => `${c.label}: $${c.raw} Million` } }
+                        }
+                    }
+                });
+            }
+
+            const phasedCtx = document.getElementById('phasedChart')?.getContext('2d');
+            if(phasedCtx) {
+                new Chart(phasedCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Oasis Communities', 'Oasis SkyCargo'],
+                        datasets: [
+                            { label: 'Phase 1 (Foundation)', data: [5, 40], backgroundColor: '#14b8a6', borderWidth: 1, borderRadius: 4 },
+                            { label: 'Phase 2 (Scaling)', data: [2500, 65], backgroundColor: '#0f766e', borderWidth: 1, borderRadius: 4 }
+                        ]
+                    },
+                    options: {
+                        responsive: true, maintainAspectRatio: false,
+                        scales: {
+                            x: { stacked: true, grid: { display: false }, ticks: { color: chartStyles.fontColor } },
+                            y: { stacked: true, grid: { color: chartStyles.gridLineColor }, ticks: { color: chartStyles.fontColor, callback: (v) => `$${v}M` } }
+                        },
+                        plugins: {
+                            legend: { position: 'bottom', labels: { color: chartStyles.fontColor, font: { size: 14 } } },
+                            tooltip: { callbacks: { label: (c) => `${c.dataset.label}: $${c.raw} Million` } }
+                        }
+                    }
+                });
+            }
+
+            const toggleBtn = document.getElementById('toggle-routes-btn');
+            const canvas = document.getElementById('route-canvas');
+            const mapContainer = canvas.parentElement;
+            const ctx = canvas.getContext('2d');
+            let routesVisible = false;
+
+            const resizeCanvas = () => {
+                canvas.width = mapContainer.clientWidth;
+                canvas.height = mapContainer.clientHeight;
+                if (routesVisible) drawRoutes(); 
+            };
+            
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            const points = {
+                portugal: { x: 0.47, y: 0.40, name: 'Portugal Hub' },
+                hk: { x: 0.83, y: 0.55, name: 'Hong Kong Hub' },
+                africa: { x: 0.51, y: 0.68, name: 'Africa Hub' }
+            };
+
+            const routesData = [
+                { from: points.hk, to: points.portugal, color: 'rgba(13, 148, 136, 0.9)', type: 'air', controlPointOffset: {x: 0, y: -0.4} },
+                { from: points.portugal, to: points.africa, color: 'rgba(13, 148, 136, 0.9)', type: 'air', controlPointOffset: {x: -0.1, y: 0.1} },
+                { from: points.hk, to: points.africa, color: 'rgba(245, 158, 11, 0.8)', type: 'sea', controlPointOffset: {x: -0.15, y: 0.3} }
+            ];
+            
+            function drawRoutes() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                if (!routesVisible) return;
+                
+                ctx.save();
+                ctx.globalAlpha = 0.8;
+
+                routesData.forEach(route => {
+                    const fromX = route.from.x * canvas.width;
+                    const fromY = route.from.y * canvas.height;
+                    const toX = route.to.x * canvas.width;
+                    const toY = route.to.y * canvas.height;
+
+                    const cpX = (fromX + toX) / 2 + route.controlPointOffset.x * canvas.width;
+                    const cpY = (fromY + toY) / 2 + route.controlPointOffset.y * canvas.height;
+
+                    ctx.beginPath();
+                    ctx.moveTo(fromX, fromY);
+                    ctx.quadraticCurveTo(cpX, cpY, toX, toY);
+                    ctx.strokeStyle = route.color;
+                    ctx.lineWidth = route.type === 'air' ? 2 : 3;
+                    if(route.type === 'sea') ctx.setLineDash([8, 8]);
+                    else ctx.setLineDash([]);
+                    ctx.stroke();
+                });
+                
+                Object.values(points).forEach(point => {
+                    const pX = point.x * canvas.width;
+                    const pY = point.y * canvas.height;
+                    
+                    ctx.beginPath();
+                    ctx.arc(pX, pY, 6, 0, 2 * Math.PI);
+                    ctx.fillStyle = '#1e293b';
+                    ctx.fill();
+                    
+                    ctx.beginPath();
+                    ctx.arc(pX, pY, 4, 0, 2 * Math.PI);
+                    ctx.fillStyle = '#f8fafc';
+                    ctx.fill();
+
+                    ctx.fillStyle = '#1e293b';
+                    ctx.font = 'bold 12px Inter';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(point.name, pX, pY - 12);
+                });
+
+                ctx.restore();
+            }
+
+            toggleBtn.addEventListener('click', () => {
+                routesVisible = !routesVisible;
+                drawRoutes();
+                toggleBtn.textContent = routesVisible ? 'Hide Logistical Routes' : 'Show Logistical Routes';
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            window.addEventListener('scroll', () => {
+                const header = document.getElementById('header');
+                if (window.scrollY > 10) header.classList.add('shadow-md');
+                else header.classList.remove('shadow-md');
+            });
+
+        });
+    </script>
+</body>
+</html>
